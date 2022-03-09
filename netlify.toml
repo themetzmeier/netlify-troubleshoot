@@ -1,0 +1,6 @@
+[dev]
+  framework = "create-react-app"
+  functionsPort = 3001
+[build]
+  functions = "lambda"
+  Command = "npm run prod"
