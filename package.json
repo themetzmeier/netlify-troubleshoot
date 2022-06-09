@@ -3,35 +3,61 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.4",
-    "browserslist": "^4.19.1",
-    "express": "^4.17.1",
-    "html-react-parser": "^1.4.8",
+    "@craco/craco": "^6.4.3",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@react-pdf/renderer": "^2.2.0",
+    "@sendgrid/mail": "^7.7.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "assert": "^2.0.0",
+    "auth0-js": "^9.19.0",
+    "aws-sdk": "^2.1152.0",
+    "axios": "^0.27.2",
+    "browserify-zlib": "^0.2.0",
+    "browserslist": "^4.20.4",
+    "buffer": "^6.0.3",
+    "contentful": "^9.1.32",
+    "contentful-management": "^10.6.2",
+    "express": "^4.18.1",
+    "jwt-decode": "^3.1.2",
     "netlify-lambda": "^2.0.15",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "react": "^18.1.0",
+    "react-big-scheduler": "^0.2.6",
+    "react-datetime": "^3.1.1",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^14.0.1",
+    "react-dom": "^18.1.0",
+    "react-dropzone": "^14.2.1",
     "react-ga": "^3.3.0",
-    "react-icons": "^4.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "serverless-http": "^2.7.0",
-    "web-vitals": "^1.0.1"
+    "react-icons": "^4.4.0",
+    "react-image-file-resizer": "^0.4.8",
+    "react-image-gallery": "^1.2.8",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-stars": "^2.2.5",
+    "serverless-http": "^3.0.1",
+    "shippo": "^1.7.1",
+    "stl-viewer": "^0.12.0",
+    "stream-browserify": "^3.0.0",
+    "styled-components": "^5.3.5",
+    "util": "^0.12.4",
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set HTTPS=true&&react-scripts start",
+    "start": "craco start",
     "stop": "taskkill /im node.exe /F",
-    "build": "react-scripts build",
+    "build": "craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
     "prod": "npm run build; npm run build:lambda",
-    "dev": "concurrently \"npm run start\" \"npm run start:lambda\"",
-    "netlify": "netlify dev",
-    "audit-report": "npm audit --json | npm-audit-html"
+    "dev": "npm run start",
+    "netlify": "netlify dev"
   },
   "eslintConfig": {
     "extends": [
@@ -39,16 +65,20 @@
       "react-app/jest"
     ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "@babel/plugin-proposal-class-properties": "7.4.0",
-    "concurrently": "^7.0.0",
-    "netlify-cli": "^9.12.3",
-    "parcel-bundler": "^1.6.1"
+    "concurrently": "^7.2.1",
+    "netlify-cli": "^10.5.0"
   }
 }
